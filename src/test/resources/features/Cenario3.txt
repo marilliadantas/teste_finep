@@ -1,0 +1,178 @@
+[
+    {
+        "context": {
+            "imports": {
+                "java": [
+                    "import org.openqa.selenium.By;",
+                    "import org.openqa.selenium.WebDriver;",
+                    "import org.openqa.selenium.WebElement;",
+                    "import org.openqa.selenium.chrome.ChromeDriver;"
+                ]
+            },
+            "source": {
+                "url": "http://www.finep.gov.br/chamadas-publicas/chamadaspublicas",
+                "language": "pt-br",
+                "html": "<!DOCTYPE html><html><head><title>Página de Chamadas Públicas</title></head><body><h1>Chamadas Públicas</h1><ul><li>ICT / Empresa (Fundacoes)</li><li>ICTs (Fundacoes)</li><li>ICTs | Empresas</li></ul><button id=\"submit-chamadas\">Buscar</button><div id=\"conteudoChamada\"><div><h3><a href=\"#\">Título da Chamada 1</a></h3></div><div class=\"group desc\"><div><p>Descrição da Chamada 1</p></div></div></div></body></html>"
+            }
+        },
+        "intents": [
+            {
+                "intent": "# navigate to Finep page",
+                "intent-generated": "Acessar a página de chamadas públicas da Finep",
+                "code": {
+                    "selenium": {
+                        "java": [
+                            "WebDriver driver = new ChromeDriver();",
+                            "driver.get(\"http://www.finep.gov.br/chamadas-publicas/chamadaspublicas\");"
+                        ]
+                    }
+                },
+                "entities": {
+                    "target": [],
+                    "related": []
+                },
+                "values": {}
+            },
+            {
+                "intent": "# click on Empresas",
+                "intent-generated": "Clicar em Empresas",
+                "code": {
+                    "selenium": {
+                        "java": [
+                            "driver.findElement(By.cssSelector(\"#barraEsquerda > ul:nth-child(8) > li:nth-child(1) > input\")).click();"
+                        ]
+                    }
+                },
+                "entities": {
+                    "target": [
+                        {
+                            "cssSelector": "#barraEsquerda > ul:nth-child(8) > li:nth-child(1) > input"
+                        }
+                    ],
+                    "related": []
+                },
+                "values": {}
+            },
+            {
+                "intent": "# click on Empresas | Startup",
+                "intent-generated": "Clicar em Empresas | Startup",
+                "code": {
+                    "selenium": {
+                        "java": [
+                            "driver.findElement(By.cssSelector(\"#barraEsquerda > ul:nth-child(8) > li:nth-child(2) > input\")).click();"
+                        ]
+                    }
+                },
+                "entities": {
+                    "target": [
+                        {
+                            "cssSelector": "#barraEsquerda > ul:nth-child(8) > li:nth-child(2) > input"
+                        }
+                    ],
+                    "related": []
+                },
+                "values": {}
+            },
+            {
+                "intent": "# click on Gestores de Fundos de Investimento em Participações",
+                "intent-generated": "Clicar em Gestores de Fundos de Investimento em Participações",
+                "code": {
+                    "selenium": {
+                        "java": [
+                            "driver.findElement(By.cssSelector(\"#barraEsquerda > ul:nth-child(8) > li:nth-child(3) > input\")).click();"
+                        ]
+                    }
+                },
+                "entities": {
+                    "target": [
+                        {
+                            "cssSelector": "#barraEsquerda > ul:nth-child(8) > li:nth-child(3) > input"
+                        }
+                    ],
+                    "related": []
+                },
+                "values": {}
+            },
+            {
+                "intent": "# click on search button",
+                "intent-generated": "Clicar no botão de busca",
+                "code": {
+                    "selenium": {
+                        "java": [
+                            "driver.findElement(By.xpath(\"//*[@id=\\\"submit-chamadas\\\"]\")).click();"
+                        ]
+                    }
+                },
+                "entities": {
+                    "target": [
+                        {
+                            "xpath": "//*[@id=\\\"submit-chamadas\\\"]"
+                        }
+                    ],
+                    "related": []
+                },
+                "values": {}
+            },
+            {
+                "intent": "# click on the second result on the page",
+                "intent-generated": "Clicar no segundo resultado da página",
+                "code": {
+                    "selenium": {
+                        "java": [
+                            "driver.findElement(By.cssSelector(\"#conteudoChamada > div:nth-child(3) > h3 > a\")).click();"
+                        ]
+                    }
+                },
+                "entities": {
+                    "target": [
+                        {
+                            "cssSelector": "#conteudoChamada > div:nth-child(3) > h3 > a"
+                        }
+                    ],
+                    "related": []
+                },
+                "values": {}
+            },
+            {
+                "intent": "# verify page title",
+                "intent-generated": "Verificar o título da página",
+                "code": {
+                    "selenium": {
+                        "java": [
+                            "String pageTitle = driver.findElement(By.cssSelector(\"#componente > div > h2 > a\")).getText();"
+                        ]
+                    }
+                },
+                "entities": {
+                    "target": [
+                        {
+                            "cssSelector": "#componente > div > h2 > a"
+                        }
+                    ],
+                    "related": []
+                },
+                "values": {}
+            },
+            {
+                "intent": "# verify page description text",
+                "intent-generated": "Verificar o texto de descrição da página",
+                "code": {
+                    "selenium": {
+                        "java": [
+                            "String pageDescription = driver.findElement(By.cssSelector(\"#componente > div > div.group.desc > div > p:nth-child(1)\")).getText();"
+                        ]
+                    }
+                },
+                "entities": {
+                    "target": [
+                        {
+                            "cssSelector": "#componente > div > div.group.desc > div > p:nth-child(1)"
+                        }
+                    ],
+                    "related": []
+                },
+                "values": {}
+            }
+        ]
+    }
+]
